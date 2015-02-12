@@ -26,11 +26,13 @@ echo -e "${TLS_CERT}" > /server.crt
 echo -e "${CA_CERT}" > /ngrok/assets/client/tls/ngrokroot.crt
 
 
-echo "=> Compiling ngrok binary files"
-cd ngrok
-make release-server release-client
-cd /
-echo "=> Successfully build the binaries"
+if [ ! -f /ngrok/bin/ngrokd ]; then
+    echo "=> Compiling ngrok binary files"
+    cd ngrok
+    make release-server release-client
+    cd /
+    echo "=> Successfully build the binaries"
+fi
 
 /deploy_binary.sh
 
