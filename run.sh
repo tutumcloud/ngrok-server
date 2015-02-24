@@ -28,9 +28,7 @@ echo -e "${CA_CERT}" > /ngrok/assets/client/tls/ngrokroot.crt
 
 if [ ! -f /ngrok/bin/ngrokd ]; then
     echo "=> Compiling ngrok binary files"
-    cd ngrok
-    make release-server release-client
-    cd /
+    cd /ngrok; make release-server release-client
     echo "=> Successfully build the binaries"
 fi
 
