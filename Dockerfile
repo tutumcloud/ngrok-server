@@ -9,7 +9,7 @@ ENV NGROK_VERSION 1.7
 RUN git clone https://github.com/inconshreveable/ngrok.git /ngrok
 RUN cd /ngrok; git checkout -fq $NGROK_VERSION
 
-ADD run.sh /run.sh
+ADD *.sh /
 
 ENV TLS_KEY **None**
 ENV TLS_CERT **None**
@@ -21,4 +21,4 @@ ENV HTTPS_ADDR :443
 
 VOLUME ["/ngrok/bin"]
 
-CMD ["/run.sh"]
+CMD ["/run-server.sh"]
