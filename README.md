@@ -1,15 +1,16 @@
 ngrok-server
-===========
+============
 
 Usage
 -----
 
-    docker run -d \
+    docker run -d --net host \
         -e TLS_CERT="`awk 1 ORS='\\n' <TLS_CERT_FILE>`" \
         -e TLS_KEY="`awk 1 ORS='\\n' <TLS_KEY_FILE>`" \
         -e CA_CERT="`awk 1 ORS='\\n' <CA_CERT_FILE>`" \
         -e DOMAIN="your.domain" \
-        ngrok
+        tutum/ngrok-server
+
 
 Environment Variables
 ---------------------
