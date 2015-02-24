@@ -5,7 +5,9 @@ RUN apt-get update && \
     apt-get install -y build-essential golang git mercurial && \
     mkdir -p /release
 
-RUN git clone https://github.com/inconshreveable/ngrok.git ngrok
+ENV NGROK_VERSION 1.7
+RUN git clone https://github.com/inconshreveable/ngrok.git /ngrok
+RUN cd /ngrok; git checkout -fq $NGROK_VERSION
 
 ADD run.sh /run.sh
 ADD deploy_binary.sh /deploy_binary.sh
