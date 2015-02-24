@@ -10,8 +10,6 @@ RUN git clone https://github.com/inconshreveable/ngrok.git /ngrok
 RUN cd /ngrok; git checkout -fq $NGROK_VERSION
 
 ADD run.sh /run.sh
-ADD deploy_binary.sh /deploy_binary.sh
-RUN chmod +x /*.sh
 
 ENV TLS_KEY **None**
 ENV TLS_CERT **None**
@@ -21,5 +19,6 @@ ENV TUNNEL_ADDR :4443
 ENV HTTP_ADDR :80
 ENV HTTPS_ADDR :443
 
+VOLUME ["/ngrok/bin"]
 
 CMD ["/run.sh"]
