@@ -6,7 +6,7 @@ Building the binaries
 
     docker run -it -v /tmp/bin:/ngrok/bin \
         -e CA_CERT="`awk 1 ORS='\\n' <CA_CERT_FILE>`" \
-        tutum/ngrok-server
+        tutum/ngrok
 
 Server and client binaries will be available in `/tmp/bin` on the host.
 
@@ -19,7 +19,7 @@ Running the server
         -e TLS_KEY="`awk 1 ORS='\\n' <TLS_KEY_FILE>`" \
         -e CA_CERT="`awk 1 ORS='\\n' <CA_CERT_FILE>`" \
         -e DOMAIN="your.domain" \
-        tutum/ngrok-server
+        tutum/ngrok
 
 
 Environment Variables
