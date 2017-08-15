@@ -1,8 +1,8 @@
-FROM golang:1.8.3-alpine3.6
+FROM golang:1.8.3
 MAINTAINER Feng Honglin <tifayuki@gmail.com>
 
-RUN apk update && \
-    apk add git mercurial bash build-base && \
+RUN apt-get update && \
+    apt-get install git mercurial bash build-essential -y && \
     mkdir -p /release && \
     git clone https://github.com/tutumcloud/ngrok.git /ngrok
 
