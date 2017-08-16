@@ -1,6 +1,10 @@
 #!/bin/bash
 set -e
 
+if [ "${DOMAIN}" == "**None**" ]; then
+    export DOMAIN=${HOSTNAME}
+fi
+
 /build.sh
 
 if [ "${TLS_KEY}" == "**None**" ]; then
@@ -13,10 +17,7 @@ if [ "${TLS_CERT}" == "**None**" ]; then
     exit 1
 fi
 
-if [ "${DOMAIN}" == "**None**" ]; then
-    echo "Please specify DOMAIN"
-    exit 1
-fi
+echo "Using DOMAIN: ${DOMAIN}"
 
 echo -e "${TLS_KEY}" > /server.key
 echo -e "${TLS_CERT}" > /server.crt
