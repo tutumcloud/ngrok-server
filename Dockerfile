@@ -14,7 +14,9 @@ ENV TLS_KEY=**None** \
     DOMAIN=**None** \
     TUNNEL_ADDR=:4443 \
     HTTP_ADDR=:80 \
-    HTTPS_ADDR=:443
+    HTTPS_ADDR=:443 \
+    LOG=stdout \
+    LOG_LEVEL=INFO
 
 VOLUME ["/ngrok/bin"]
 
